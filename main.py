@@ -17,7 +17,7 @@ escape = 0
 # Initialise I2C bus.
 i2c = board.I2C()  # uses board.SCL and board.SDA
 #kill running sound bridges 
-subprocess.run("killall parec")
+subprocess.run(["killall","pacat"])
 # Initialise the LCD class
 lcd = character_lcd.Character_LCD_RGB_I2C(i2c, lcd_columns, lcd_rows)
 
@@ -37,18 +37,27 @@ while True:
 
     elif lcd.up_button:
        # print("Up!")
-        lcd.message = "Up!"
+        lcd.clear()
+        lcd.message = "EQon"
+        subprocess.run("./EQon.sh")
 
     elif lcd.down_button:
        # print("Down!")
-        lcd.message = "Down!"
+        lcd.clear()
+        lcd.message = "EQoff"
+        subprocess.run("./EQoff.sh")
 
     elif lcd.right_button:
       #  print("Right!")
-        lcd.message = "Right!"
+        lcd.clear()
+        lcd.message = "Turn off =^_^="
+        subprocess.run(["killall","pacat"])
 
     elif lcd.select_button:
-        lcd.message = "Xair18 EQ"
+        lcd.message = "House lights"
+        subprocess.run("./houselight.sh")
+"""
+        lcd.message = "House lights"
         if eqflag == 1:
             lcd.clear()
             lcd.message = "ON, Press DWN to\nTurn off "
@@ -82,8 +91,10 @@ while True:
                     #xair poke
                     lcd.message = "TURNING ON EQ"
                     lcd.clear()
-            time.sleep(0.5)
+            time.sleep(0.5) */
+
+"""
 
 
-        time.sleep(0.5)
+time.sleep(0.5)
 #        lcd.clear()
