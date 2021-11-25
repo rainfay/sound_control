@@ -54,6 +54,7 @@ while True:
         subprocess.run(["killall","pacat"])
 
     elif lcd.select_button:
+        lcd.clear()
         lcd.message = "House lights"
         subprocess.run("./houselight.sh")
 """
@@ -98,3 +99,26 @@ while True:
 
 time.sleep(0.5)
 #        lcd.clear()
+def lights(switch):
+    #this function will call shell scripts to trigger the lighing controler Lightfactory 
+    #0 switch to lightinng mode on controler
+    #1 House lights 
+    #2 Blue
+    #3 Red
+    #4 Show
+    #5 Fay Look
+    #6 Panic
+    if switch == 1: #house lights
+        #do house lights 
+    if switch == 2: # Blue
+        #do blue
+    if switch == 3:
+        #do red
+    if switch == 4:
+        #do show
+    if switch == 5:
+        #do fay's look
+    if switch == 6:
+        #do panic
+    if switch == 0:
+        #do control function 
