@@ -122,3 +122,33 @@ def lights(switch):
         #do panic
     if switch == 0:
         #do control function 
+        while True:
+        if lcd.left_button:
+      #  print("Left!")
+            lcd.message = "lighting control mode"
+            subprocess.run("./EQon.sh")
+            subprocess.run("./neko.sh")
+
+        elif lcd.up_button:
+       # print("Up!")
+            lcd.clear()
+            lcd.message = "EQon"
+            subprocess.run("./EQon.sh")
+
+        elif lcd.down_button:
+       # print("Down!")
+            lcd.clear()
+            lcd.message = "EQoff"
+            subprocess.run("./EQoff.sh")
+
+        elif lcd.right_button:
+      #  print("Right!")
+            lcd.clear()
+            lcd.message = "Turn off =^_^="
+            subprocess.run(["killall","pacat"])
+
+        elif lcd.select_button:
+            lcd.clear()
+            lcd.message = "House lights"
+            subprocess.run("./houselight.sh")
+    time.sleep(0.5)
