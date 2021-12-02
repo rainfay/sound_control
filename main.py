@@ -38,8 +38,8 @@ while True:
     elif lcd.up_button:
        # print("Up!")
         lcd.clear()
-        lcd.message = "EQon"
-        subprocess.run("./EQon.sh")
+        lcd.message = "Show light"
+        subprocess.run("./show.sh")
 
     elif lcd.down_button:
        # print("Down!")
