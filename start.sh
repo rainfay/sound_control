@@ -1,5 +1,6 @@
 #!/bin/bash
 #this script starts pulse audio. then kickes off the script
-sleep 30s
-/usr/bin/pulseaudio --start
-/usr/bin/python3  /home/pi/sound_control/main.py
+sleep 10s
+killall pulseaudio
+/usr/bin/pulseaudio & 
+/usr/bin/python3  /home/pi/sound_control/main.py &
