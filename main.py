@@ -38,8 +38,8 @@ while True:
     elif lcd.up_button:
        # print("Up!")
         lcd.clear()
-        lcd.message = "EQon"
-        subprocess.run("./EQon.sh")
+        lcd.message = "Show light"
+        subprocess.run("./show.sh")
 
     elif lcd.down_button:
        # print("Down!")
@@ -109,16 +109,48 @@ def lights(switch):
     #5 Fay Look
     #6 Panic
     if switch == 1: #house lights
-        #do house lights 
-    if switch == 2: # Blue
+        #do house lights
+        lcd.clear()
+    elif switch == 2: # Blue
         #do blue
-    if switch == 3:
+        lcd.clear()
+    elif switch == 3:
         #do red
-    if switch == 4:
+        lcd.clear()
+    elif switch == 4:
         #do show
-    if switch == 5:
+        lcd.clear()
+    elif switch == 5:
         #do fay's look
-    if switch == 6:
+        lcd.clear()
+    elif switch == 6:
         #do panic
-    if switch == 0:
+        lcd.clear()
+    elif switch == 0:
         #do control function 
+        while True:
+            if lcd.left_button:
+      #  print("Left!")
+                lcd.message = "lighting control mode"
+            elif lcd.up_button:
+       # print("Up!")
+                lcd.clear()
+                lcd.message = "EQon"
+
+            elif lcd.down_button:
+       # print("Down!")
+                lcd.clear()
+                lcd.message = "EQoff"
+                subprocess.run("./EQoff.sh")
+
+            elif lcd.right_button:
+      #  print("Right!")
+                lcd.clear()
+                lcd.message = "Turn off =^_^="
+                subprocess.run(["killall","pacat"])
+
+            elif lcd.select_button:
+                lcd.clear()
+                lcd.message = "House lights"
+                subprocess.run("./houselight.sh")
+        time.sleep(0.5)
